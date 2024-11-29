@@ -1,0 +1,21 @@
+#spring.application.name=cvpedgram
+#
+#spring.thymeleaf.cache=false
+
+
+spring:
+   config:
+    import: security-variable-yml
+   mvc:
+    tatic-path-pattern: /static/** 
+   datasource:
+    driver-calss-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ cvpedgram
+    username: root
+    password: ${mysql.password}
+thymeleaf:
+    cache: false
+    application:
+    name: memo
+mybatis:
+    mapper-locations: mappers/*Mapper.xml
