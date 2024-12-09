@@ -1,21 +1,26 @@
-#spring.application.name=cvpedgram
+#spring.application.name=Cvpedgram
 #
 #spring.thymeleaf.cache=false
 
-
 spring:
-   config:
-    import: security-variable-yml
-   mvc:
-    tatic-path-pattern: /static/** 
-   datasource:
-    driver-calss-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ cvpedgram
-    username: root
-    password: ${mysql.password}
-thymeleaf:
-    cache: false
+    jpa:
+       hibernate:
+            ddl-auto: none
+            naming :
+                implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl           
+    config:
+        import: security-variable.yml
+    mvc:
+        static-path-pattern: /static/**
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/Cvpedgram
+        username: root
+        password: ${mysql.password}
+    thymeleaf:
+        cache: false
     application:
-    name: memo
+        name: Cvpedgram
 mybatis:
-    mapper-locations: mappers/*Mapper.xml
+    mapper-locations: mappers/*Mapper.xml 
