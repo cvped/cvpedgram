@@ -39,12 +39,29 @@ public class UserService {
 		
 	}
 	
+	
+	public boolean isDuplicateId(String loginId) {
+		
+		int count = userRepository.selectCountLoginId(loginId);
+		
+		if(count > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public User getUser(String loginId,String password) {
 		
 		String encodingPassword = MD5HashingEncoder.encode(password);
 		
-		return  userRepository.selectUser(loginId, password);
+		return  userRepository.selectUser(loginId, encodingPassword);
 		
 	}
+	
+	public User getUserById(int id) {
+		return userRepository.selectUserById(id);
+	}
+	
 	
 }

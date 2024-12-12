@@ -1,4 +1,4 @@
-package com.cvpedgram.post.domain;
+package com.cvpedgram.comment.comment;
 
 import java.time.LocalDateTime;
 
@@ -16,33 +16,27 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Table(name="`post`")
+@Table(name="`comment`")
 @Entity
-public class Post {
+public class Comment {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
+	@Column(name="postId")
+	private int postId;
 	@Column(name="userId")
 	private int userId;
-	
 	private String contents;
-	
-	@Column(name="imagePath")
-	private String imagePath;
-	
 	@Column(name="createdAt")	
 	@CreationTimestamp
-	private LocalDateTime createdAt;	
-	
+	private LocalDateTime createAt;
 	@Column(name="updatedAt")
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
-	
 }

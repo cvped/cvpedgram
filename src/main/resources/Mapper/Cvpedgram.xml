@@ -25,6 +25,50 @@
  	
  	</insert>
  	
+ <select id="selectCountLoginId" parameterType="string" resultType="int">
+		SELECT 
+			count(*)
+		FROM 
+			`user`
+		WHERE 
+			`loginId` = #{loginId}
+	
+	</select>
+	
+	<select id="selectUser" parameterType="map"
+	resultType="com.cvpedgram.user.domain.User">
+		SELECT 
+			`id`
+			, `loginId`
+			, `password`
+			, `name`
+			, `email`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`user`
+		WHERE 
+			`loginId` = #{loginId}
+			AND `password` = #{password}
+	
+	</select>
+	
+	<select id="selectUserById" parameterType="int"
+	resultType="com.cvpedgram.user.domain.User">
+		SELECT 
+			`id`
+			, `loginId`
+			, `password`
+			, `name`
+			, `email`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`user`
+		WHERE
+			`id` = #{id}
+	</select>
+	
  	
  
  

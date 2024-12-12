@@ -1,7 +1,10 @@
-package com.cvpedgram.domain;
+package com.cvpedgram.user.domain;
 
 import java.time.LocalDate;
 
+import lombok.Getter;
+
+@Getter
 public class User {
 
 	private int id;

@@ -1,6 +1,7 @@
 package com.cvpedgram.post;
 
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,8 +26,19 @@ private PostService postService;
 			@RequestParam("contents")String contents
 			,@RequestParam("imageFile")MultipartFile file
 			,HttpSession session){
-				
+		
 		int userId = (Integer)session.getAttribute("userId");
 		
+		Map<String,String> resultMap = new HashMap<>(); 
+		if(postService.addPost(userId, contents, file)) {
+			resultMap.put("result", "success");
+		}else {
+			resultMap.put("result", "fail");
+		}
+		
+		return resultMap;
+				
 	}
+	
+
 }

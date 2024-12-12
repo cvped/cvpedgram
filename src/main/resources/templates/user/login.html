@@ -9,13 +9,15 @@
 				<h1>Cvpedgram</h1>
 				<h1 class="text-center">로그인</h1>
 				<input type="text" class="form-center mt-4" placeholder="아이디를 입력하세요" id="loginIdInput">
+				<form>
 				<input type="password" class="form-center mt-2" placeholder="비밀번호를 입력하세요" id="passwordInput">
+				</form>
 				<button type="button" class="btn btn-secondary btn block mt-3" id="loginBtn">로그인</button>
 				<div class="text-center mt-4 bg-success">
 				<a href="/user/join-view">회원가입</a>		
 				</div>
 			</div>
-			</div>
+			
 		</section>
 		<script layout:fragment="script">
 			$(documnet).ready(function(){
@@ -39,7 +41,7 @@
 						,data:{"loginId": id, "password":password}
 						,success:function(response){
 							if(response.result == "success"){
-								location.href="/post/list-view"
+								location.href="/post/login-view"
 							}else{
 								alert("아이디와 비밀번호를 확인해주세요")
 							}
